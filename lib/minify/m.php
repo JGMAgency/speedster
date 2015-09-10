@@ -6,7 +6,8 @@ define('PS', PATH_SEPARATOR);
 if(strpos(__FILE__,'.modman') !== false){
     $baseDir = dirname(dirname(dirname(dirname(dirname(__FILE__)))));
 } if (strpos(__FILE__, '/vendor/') !== false) {
-    $baseDir = substr(__FILE__, 0, strpos(__FILE__, '/vendor/'));
+    // @FIXME How can you detect a subdirectory? magento-root-dir from composer.json
+    $baseDir = substr(__FILE__, 0, strpos(__FILE__, '/vendor/')) . DS . 'shop';
 } else {
     $baseDir = dirname(dirname(dirname(__FILE__)));
 }
